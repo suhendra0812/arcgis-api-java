@@ -37,6 +37,6 @@ public class FeatureLayer {
 
     @Override
     public String toString() {
-        return String.format("FeatureLayer(url=%s)", this.url);
+        return String.format("<FeatureLayer url: %s>", this.url);
     }
 }

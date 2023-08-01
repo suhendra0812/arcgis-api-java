@@ -1,6 +1,5 @@
 package com.jababeka.arcgis.features;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -14,7 +13,7 @@ public class FeatureSet {
         this.features = features;
     }
 
-    public static FeatureSet fromJson(String json) throws ParseException {
+    public static FeatureSet fromJson(String json) throws Exception {
         JSONObject object = new JSONObject(json);
 
         JSONArray jsonFeatures = (JSONArray) object.get("features");
@@ -34,10 +33,6 @@ public class FeatureSet {
 
     @Override
     public String toString() {
-        ArrayList<String> features = new ArrayList<String>();
-        for (int i = 0; i < features.toArray().length; i++) {
-            features.add(i, features.get(i).toString());
-        }
-        return features.toString();
+        return String.format("<FeatureSet> %s features", this.features.size());
     }
 }
